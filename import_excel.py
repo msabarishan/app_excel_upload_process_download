@@ -7,8 +7,10 @@ st.write("""
 machine_priority= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
 machine_availability= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
 
-if uploaded_file:
-    df = pd.read_excel(uploaded_file)
+if machine_priority:
+    df = pd.read_excel(machine_priority)
+if machine_availabiity:
+    df = pd.read_excel(machine_availability)
 ndf = pd.merge(mp,ma,on ='location',how ='inner')
 
 n_p=ndf['location'].count()
