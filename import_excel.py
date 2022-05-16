@@ -4,12 +4,8 @@ import numpy as np
 st.write("""
 # Machine Allocation
 """)
-file_ma=pd.read_excel('ma')
-file_mp=pd.read_excel('mp')
-
-st.subheader('Click here to download sample files')
-mp1= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
-ma1= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
+ma1=pd.read_excel('ma.xlsx')
+mp1=pd.read_excel('mp.xlsx')
 def convert_df(mp1):
        return mp1.to_csv().encode('utf-8')
 
@@ -28,7 +24,6 @@ def convert_df(ma1):
 
 
 ma1_csv = convert_df(ma1)
-
 st.download_button(
       "Press to Download ma file",
       ma1_csv,
@@ -36,6 +31,12 @@ st.download_button(
       "text/csv",
       key='download-csv'
       )
+st.subheader('Click here to download sample files')
+mp1= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
+ma1= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
+
+
+
 
 try:
     if mp1:
