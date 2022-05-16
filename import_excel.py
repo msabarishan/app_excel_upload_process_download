@@ -5,17 +5,19 @@ st.write("""
 # Machine_Utilization_Calculation
 """)
 
-dataUploaded=st.file_uploader("fileUploader")
+uploaded_file = st.file_uploader(“Choose a file”)
 
+if uploaded_file is not None:
 try:
-        df=pd.read_csv(dataUploaded)
+        df1=pd.read_csv(uploaded_file)
 except:
         try:
-              df = pd.read_excel(dataUploaded)
+              df1=pd.read_excel(uploaded_file)
+
         except:      
               df=pd.DataFrame()
                 
-st.dataframe(df)
+st.DataFrame(df)
 
 
 
