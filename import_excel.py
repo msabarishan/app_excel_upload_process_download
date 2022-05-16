@@ -7,22 +7,24 @@ st.write("""
 mp1= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
 ma1= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
 
-if mp1:
-    mp = pd.read_excel(mp1)
-if ma1:
-    ma = pd.read_excel(ma1)
-    
-ndf = pd.merge(mp,ma,on ='location',how ='inner')
+try:
+    if mp1:
+           mp = pd.read_excel(mp1)
+    if ma1:
+           ma = pd.read_excel(ma1)
 
-n_p=ndf['location'].count()
-j=1
-mac_data={}
-start='maf'
-mac_data1=[start]
-d=1000
+    
+    ndf = pd.merge(mp,ma,on ='location',how ='inner')
+
+    n_p=ndf['location'].count()
+    j=1
+    mac_data={}
+    start='maf'
+    mac_data1=[start]
+    d=1000
     
 
-for i in range(n_p):
+    for i in range(n_p):
         
         if(d!=ndf.iloc[j-1,0]):
             a=ndf.iloc[j-1,8]
@@ -81,23 +83,25 @@ for i in range(n_p):
             mac_data='nm'
         mac_data1.append(mac_data)
         j=j+1
-mac_data1.remove("maf")
-ndf['Machine_allocated']=pd.DataFrame(mac_data1)
-st.subheader('Download Excel')
+   mac_data1.remove("maf")
+   ndf['Machine_allocated']=pd.DataFrame(mac_data1)
+   st.subheader('Download Excel')
 
-def convert_df(ndf):
-   return ndf.to_csv().encode('utf-8')
+   def convert_df(ndf):
+       return ndf.to_csv().encode('utf-8')
 
 
-csv = convert_df(ndf)
+   csv = convert_df(ndf)
 
-st.download_button(
-   "Press to Download",
-   csv,
-   "file.csv",
-   "text/csv",
-   key='download-csv'
-)
-st.subheader('Machine Plan')
-st.table(ndf)
+   st.download_button(
+      "Press to Download",
+      csv,
+      "file.csv",
+      "text/csv",
+      key='download-csv'
+      )
+   st.subheader('Machine Plan')
+   st.table(ndf)
+except:
+    pass
 
