@@ -14,9 +14,9 @@ if uploaded_file is not None:
                 try:
                       df1=pd.read_excel(uploaded_file)
                 except:      
-                      df=pd.DataFrame()
+                      df1=pd.DataFrame()
                 
-st.dataframe(df)
+st.dataframe(df1)
 
 
 
