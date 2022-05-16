@@ -9,7 +9,7 @@ uploadedFile = st.file_uploader(fileUploadLabel, type=['csv','xlsx'],accept_mult
 
 try:
         df=pd.read_csv(dataUploaded, error_bad_lines=True, warn_bad_lines=False,sep=chosenFileSeparator)
-  except:
+except:
         try:
               df = pd.read_excel(dataUploaded)
         except:      
