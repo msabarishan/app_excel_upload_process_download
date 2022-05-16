@@ -16,7 +16,7 @@ if uploaded_file is not None:
                 except:      
                       df=pd.DataFrame()
                 
-st.DataFrame(df)
+st.dataframe(df)
 
 
 
