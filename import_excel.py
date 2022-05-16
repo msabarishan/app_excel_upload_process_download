@@ -8,7 +8,7 @@ st.write("""
 dataUploaded=st.file_uploader("fileUploader")
 
 try:
-        df=pd.read_csv(dataUploaded, error_bad_lines=True, warn_bad_lines=False,sep=chosenFileSeparator)
+        df=pd.read_csv(dataUploaded)
 except:
         try:
               df = pd.read_excel(dataUploaded)
