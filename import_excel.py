@@ -9,7 +9,7 @@ machine_availability= st.file_uploader("Choose a Machine Availability XLSX file"
 
 if machine_priority:
     df = pd.read_excel(machine_priority)
-if machine_availabiity:
+if machine_availability:
     df = pd.read_excel(machine_availability)
 ndf = pd.merge(mp,ma,on ='location',how ='inner')
 
