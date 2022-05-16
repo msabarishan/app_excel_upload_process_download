@@ -8,15 +8,13 @@ st.write("""
 uploaded_file = st.file_uploader("Choose a file")
 
 if uploaded_file is not None:
-        try:
-                df1=pd.read_csv(uploaded_file)
-        except:
-                try:
-                      df1=pd.read_excel(uploaded_file)
-                except:      
-                      df1=pd.DataFrame()
+        
+        df1=pd.read_csv(uploaded_file)
+        df1=pd.read_excel(uploaded_file)
+        st.dataframe(df1)
+        
                 
-st.dataframe(df1)
+
 
 
 
