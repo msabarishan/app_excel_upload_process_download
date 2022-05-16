@@ -4,13 +4,14 @@ import numpy as np
 st.write("""
 # Machine Allocation
 """)
-mp= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
-ma= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
+mp1= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
+ma1= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
 
-if mp:
-    mp = pd.read_excel(mp)
-if ma:
-    ma = pd.read_excel(ma)
+if mp1:
+    mp = pd.read_excel(mp1)
+if ma1:
+    ma = pd.read_excel(ma1)
+    
 ndf = pd.merge(mp,ma,on ='location',how ='inner')
 
 n_p=ndf['location'].count()
