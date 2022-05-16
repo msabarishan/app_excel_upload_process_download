@@ -83,7 +83,8 @@ try:
             mac_data='nm'
         mac_data1.append(mac_data)
         j=j+1
-     mac_data1.remove("maf")
+        
+    mac_data1.remove("maf")
     ndf['Machine_allocated']=pd.DataFrame(mac_data1)
     st.subheader('Download Excel')
 
