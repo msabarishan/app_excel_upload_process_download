@@ -83,6 +83,21 @@ for i in range(n_p):
         j=j+1
 mac_data1.remove("maf")
 ndf['Machine_allocated']=pd.DataFrame(mac_data1)
+st.subheader('Download Excel')
 
+def convert_df(ndf):
+   return ndf.to_csv().encode('utf-8')
+
+
+csv = convert_df(ndf)
+
+st.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
+st.subheader('Machine Plan')
 st.table(ndf)
 
