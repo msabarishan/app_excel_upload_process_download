@@ -11,8 +11,7 @@ df_mc_prior=pd.read_excel('mc_prior.xlsx')
 st.download_button(
       label='Press to Download machine priority sample file',
       data=df_mc_prior,
-      file_name="mc_prior.xlsx",
-      key='download-excel'
+      file_name='mc_prior.xlsx'
       )
 
 
