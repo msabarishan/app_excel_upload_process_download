@@ -35,9 +35,9 @@ mc_avail_ip= st.file_uploader("Choose a Machine Availability CSV file")
 
 
 try:
-    if mc_prior_ip:
+    if mc_prior_ip is not None:
            mp = pd.read_csv(mc_prior_ip) #mp-machine priority data frame
-    if mc_avail_ip:
+    if mc_avail_ip is not None:
            ma = pd.read_csv(mc_avail_ip) #ma-machine availabilty data frame
 
     
