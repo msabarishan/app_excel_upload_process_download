@@ -29,7 +29,7 @@ st.download_button(
       "text/csv",
       key='download-csv'
       )
-st.subheader('UPLOAD THE MCHINE PRIORITY AND MACHINE AVAILABILITY FILE BELOW IN CSV FORMAT')
+st.subheader('UPLOAD THE MACHINE PRIORITY AND MACHINE AVAILABILITY FILE BELOW IN CSV FORMAT')
 mc_prior_ip= st.file_uploader("Choose a Machine Priority CSV file", type="csv")
 mc_avail_ip= st.file_uploader("Choose a Machine Availability CSV file", type="csv")
 
