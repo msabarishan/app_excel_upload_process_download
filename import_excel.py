@@ -13,6 +13,7 @@ def convert_df(machine):
 
 
 mc_prior_csv = convert_df(df_mc_prior)
+mc_prior_csv=mc_prior_csv.drop(['index'],axis=1)
 st.subheader('Click here to download sample files')
 st.download_button(
       "Press to Download machine Priority file",
@@ -22,6 +23,7 @@ st.download_button(
       key='download-csv'
       )
 mc_avail_csv = convert_df(df_mc_avail)
+mc_avail_csv=mc_avail_csv.drop(['index'],axis=1)
 st.download_button(
       "Press to Download machine availability file",
       mc_avail_csv,
