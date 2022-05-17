@@ -7,8 +7,8 @@ st.write("""
 df_mc_avail=pd.read_excel('mc_avail.xlsx')
 df_mc_prior=pd.read_excel('mc_prior.xlsx')
 
-df_mc_avail.reset_index(drop=True, inplace=True)
-df_mc_prior.reset_index(drop=True, inplace=True)
+df_mc_avail=df_mc_avail.reset_index(drop=True, inplace=True)
+df_mc_prior=df_mc_prior.reset_index(drop=True, inplace=True)
 
 
 def convert_df(machine):
