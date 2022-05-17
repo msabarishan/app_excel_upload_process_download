@@ -10,7 +10,7 @@ df_mc_prior=pd.read_excel('mc_prior.xlsx')
 
 
 def convert_df(machine):
-       return machine.to_csv().encode('utf-8')
+       return machine.to_csv(index=False).encode('utf-8')
 
 
 mc_prior_csv = convert_df(df_mc_prior)
