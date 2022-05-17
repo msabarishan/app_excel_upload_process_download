@@ -4,13 +4,10 @@ import numpy as np
 st.write("""
 # Machine Allocation
 """)
-mc_availability=pd.read_excel('mc_avail.xlsx')
-mc_priority=pd.read_excel('mc_prior.xlsx')
+df_mc_avail=pd.read_excel('mc_avail.xlsx', index_col=False)
+df_mc_prior=pd.read_excel('mc_prior.xlsx', index_col=False)
 
-df_mc_avail = mc_availability.reset_index(drop=True, inplace=True)
-df_mc_prior = mc_priority.reset_index(drop=True, inplace=True)
 
-st.table(mc_availability)
 def convert_df(machine):
        return machine.to_csv().encode('utf-8')
 
