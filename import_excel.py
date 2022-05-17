@@ -4,55 +4,53 @@ import numpy as np
 st.write("""
 # Machine Allocation
 """)
-ma1=pd.read_excel('ma.xlsx')
-mp1=pd.read_excel('mp.xlsx')
-def convert_df(mp1):
-       return mp1.to_csv().encode('utf-8')
+df_mc_avail=pd.read_excel('ma.xlsx')
+df_mc_prior=pd.read_excel('mp.xlsx')
+
+def convert_df(machine_data):
+       return machine_data.to_csv().encode('utf-8')
 
 
-mp1_csv = convert_df(mp1)
+mc_prior_csv = convert_df(machine_data)
 
 st.download_button(
       "Press to Download mp file",
-      mp1_csv,
+      mc_prior_csv,
       "file.csv",
       "text/csv",
       key='download-csv'
       )
-def convert_df(ma1):
-       return ma1.to_csv().encode('utf-8')
 
-
-ma1_csv = convert_df(ma1)
+mc_avail_csv = convert_df(df_mc_avail)
 st.download_button(
       "Press to Download ma file",
-      ma1_csv,
+      mc_avail_csv,
       "file.csv",
       "text/csv",
       key='download-csv'
       )
 st.subheader('Click here to download sample files')
-mp1= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
-ma1= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
+mc_prior_ip= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
+mc_avail_ip= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
 
 
 
 
 try:
-    if mp1:
-           mp = pd.read_excel(mp1)
-    if ma1:
-           ma = pd.read_excel(ma1)
+    if mc_prior_ip:
+           mp = pd.read_excel(mc_prior_ip) #mp-machine priority data frame
+    if mc_avail_ip:
+           ma = pd.read_excel(mc_avial_ip) #ma-machine availabilty data frame
 
     
-    ndf = pd.merge(mp,ma,on ='location',how ='inner')
+    ndf = pd.merge(mp,ma,on ='location',how ='inner') #ndf-merged data frame
 
-    n_p=ndf['location'].count()
+    n_p=ndf['location'].count() #Counting no of location
     j=1
-    mac_data={}
-    start='maf'
-    mac_data1=[start]
-    d=1000
+    mac_data={} #mac_data new dictionary
+    start='maf' 
+    mac_data1=[start] 
+    d=1000 #initialize location value to 1000
     
 
     for i in range(n_p):
