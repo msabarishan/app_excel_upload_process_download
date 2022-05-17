@@ -4,8 +4,8 @@ import numpy as np
 st.write("""
 # Machine Allocation
 """)
-df_mc_avail=pd.read_excel('ma.xlsx')
-df_mc_prior=pd.read_excel('mp.xlsx')
+df_mc_avail=pd.read_excel('mc_avail.xlsx')
+df_mc_prior=pd.read_excel('mc_prior.xlsx')
 
 def convert_df(machine_data):
        return machine_data.to_csv().encode('utf-8')
