@@ -30,17 +30,17 @@ st.download_button(
       key='download-csv'
       )
 st.subheader('UPLOAD THE MACHINE PRIORITY AND MACHINE AVAILABILITY FILE BELOW IN CSV FORMAT')
-mc_prior_ip= st.file_uploader("Choose a Machine Priority CSV file", type="xlsx")
-mc_avail_ip= st.file_uploader("Choose a Machine Availability CSV file", type="xlsx")
+mc_prior_ip= st.file_uploader("Choose a Machine Priority CSV file", type="csv")
+mc_avail_ip= st.file_uploader("Choose a Machine Availability CSV file", type="csv")
 
 
 
 
 try:
     if mc_prior_ip:
-           mp = pd.read_excel(mc_prior_ip) #mp-machine priority data frame
+           mp = pd.read_csv(mc_prior_ip) #mp-machine priority data frame
     if mc_avail_ip:
-           ma = pd.read_excel(mc_avail_ip) #ma-machine availabilty data frame
+           ma = pd.read_csv(mc_avail_ip) #ma-machine availabilty data frame
 
     
     ndf = pd.merge(mp,ma,on ='location',how ='inner') #ndf-merged data frame
@@ -115,7 +115,7 @@ try:
         
     mac_data1.remove("maf")
     ndf['Machine_allocated']=pd.DataFrame(mac_data1)
-    st.subheader('Download Excel')
+    st.subheader('Export Plan in CSV format')
 
     def convert_df(ndf):
        return ndf.to_csv().encode('utf-8')
