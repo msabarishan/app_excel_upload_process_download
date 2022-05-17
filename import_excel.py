@@ -114,6 +114,7 @@ try:
         
     mac_data1.remove("maf")
     ndf['Machine_allocated']=pd.DataFrame(mac_data1)
+    ndf.reset_index() 
     st.subheader('Export Plan in CSV format')
 
     def convert_df(ndf):
