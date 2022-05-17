@@ -11,7 +11,7 @@ def convert_df(machine_data):
        return machine_data.to_csv().encode('utf-8')
 
 
-mc_prior_csv = convert_df(machine_data)
+mc_prior_csv = convert_df(df_mc_prior)
 
 st.download_button(
       "Press to Download mp file",
