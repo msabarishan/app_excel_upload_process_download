@@ -8,31 +8,40 @@ df_mc_avail=pd.read_excel('mc_avail.xlsx')
 df_mc_prior=pd.read_excel('mc_prior.xlsx')
 
 
-st.download_button(
-      label='Press to Download machine priority sample file',
-      data=df_mc_prior,
-      file_name='mc_prior.xlsx'
-      )
+def convert_df(machine):
+       return machine.to_csv().encode('utf-8')
 
 
+mc_prior_csv = convert_df(df_mc_prior)
+st.subheader('Click here to download sample files')
 st.download_button(
-      label='Press to Download machine availability sample file',
-      data =df_mc_avail,
-      file_name='mc_avail.xlsx',
-      key='download-excel'
+      "Press to Download machine Priority file",
+      mc_prior_csv,
+      "file.csv",
+      "text/csv",
+      key='download-csv'
+      
+
+mc_avail_csv = convert_df(df_mc_avail)
+st.download_button(
+      "Press to Download machine availability file",
+      mc_avail_csv,
+      "file.csv",
+      "text/csv",
+      key='download-csv'
       )
 st.subheader('Click here to download sample files')
-mc_prior_ip= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
-mc_avail_ip= st.file_uploader("Choose a Machine Availability XLSX file", type="xlsx")
+mc_prior_ip= st.file_uploader("Choose a Machine Priority CSV file", type="csv")
+mc_avail_ip= st.file_uploader("Choose a Machine Availability CSV file", type="csv")
 
 
 
 
 try:
     if mc_prior_ip:
-           mp = pd.read_excel(mc_prior_ip) #mp-machine priority data frame
+           mp = pd.read_csv(mc_prior_ip) #mp-machine priority data frame
     if mc_avail_ip:
-           ma = pd.read_excel(mc_avial_ip) #ma-machine availabilty data frame
+           ma = pd.read_csv(mc_avial_ip) #ma-machine availabilty data frame
 
     
     ndf = pd.merge(mp,ma,on ='location',how ='inner') #ndf-merged data frame
