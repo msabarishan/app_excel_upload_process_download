@@ -24,7 +24,7 @@ mc_avail_excel = convert_df(df_mc_avail)
 st.download_button(
       label='Press to Download machine availability sample file',
       data =mc_avail_excel,
-      file_name='mc_avail.xlsx'
+      file_name='mc_avail.xlsx',
       key='download-excel'
       )
 st.subheader('Click here to download sample files')
