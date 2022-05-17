@@ -131,7 +131,7 @@ try:
       key='download-csv'
       )
     st.subheader('Machine Plan')
-    st.table(ndf)
+    st.dataframe(ndf)
     st.write('ma1- Machine 1, ma2- Machine 2, ma3- Machine 3')
 except:
     pass
