@@ -10,7 +10,7 @@ mc_priority=pd.read_excel('mc_prior.xlsx')
 df_mc_avail = mc_availability.reset_index(drop=True, inplace=True)
 df_mc_prior = mc_priority.reset_index(drop=True, inplace=True)
 
-
+st.table(df_mc_avail)
 def convert_df(machine):
        return machine.to_csv().encode('utf-8')
 
