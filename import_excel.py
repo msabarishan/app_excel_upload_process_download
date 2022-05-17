@@ -16,7 +16,7 @@ mc_prior_csv = convert_df(df_mc_prior)
 st.download_button(
       "Press to Download machine priority sample file",
       mc_prior_csv,
-      "file.csv",
+      "mc_prior.csv",
       "text/csv",
       key='download-csv'
       )
@@ -25,7 +25,7 @@ mc_avail_csv = convert_df(df_mc_avail)
 st.download_button(
       "Press to Download machine availability sample file",
       mc_avail_csv,
-      "file.csv",
+      "mc_avail.csv",
       "text/csv",
       key='download-csv'
       )
