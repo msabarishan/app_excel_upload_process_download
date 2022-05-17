@@ -132,6 +132,7 @@ try:
       )
     st.subheader('Machine Plan')
     st.table(ndf)
+    st.write('m1- Time taken by Material for machinining in machine1,m1p-Machine 1 Priority level,ma1-machine available time for the particular location,ma1-machine1')
 except:
     pass
 
