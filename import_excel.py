@@ -5,15 +5,15 @@ st.write("""
 # Machine Allocation
 """)
 df_mc_avail=pd.read_excel('mc_avail.xlsx',header= 0,index_col=False)
+df_mc_avail=df_mc_avail.drop(['index'],axis=1)
 df_mc_prior=pd.read_excel('mc_prior.xlsx',header= 0,index_col=False)
-
+df_mc_prior=df_mc_prior.drop(['index'],axis=1)
 
 def convert_df(machine):
        return machine.to_csv().encode('utf-8')
 
 
 mc_prior_csv = convert_df(df_mc_prior)
-mc_prior_csv.drop(['index'],axis=1)
 st.subheader('Click here to download sample files')
 st.download_button(
       "Press to Download machine Priority file",
@@ -23,7 +23,6 @@ st.download_button(
       key='download-csv'
       )
 mc_avail_csv = convert_df(df_mc_avail)
-mc_avail_csv.drop(['index'],axis=1)
 st.download_button(
       "Press to Download machine availability file",
       mc_avail_csv,
