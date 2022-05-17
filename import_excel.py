@@ -5,9 +5,9 @@ st.write("""
 # Machine Allocation
 """)
 df_mc_avail=pd.read_excel('mc_avail.xlsx',header= 0,index_col=False)
-df_mc_avail=df_mc_avail.drop(['index'],axis=1)
+df_mc_avail=df_mc_avail.reset_index()
 df_mc_prior=pd.read_excel('mc_prior.xlsx',header= 0,index_col=False)
-df_mc_prior=df_mc_prior.drop(['index'],axis=1)
+df_mc_prior=df_mc_prior.reset_index()
 
 def convert_df(machine):
        return machine.to_csv().encode('utf-8')
