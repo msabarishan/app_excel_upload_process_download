@@ -7,23 +7,18 @@ st.write("""
 df_mc_avail=pd.read_excel('mc_avail.xlsx')
 df_mc_prior=pd.read_excel('mc_prior.xlsx')
 
-def convert_df(machine_data):
-       return machine_data.to_excel().encode('utf-8')
-
-
-mc_prior_excel = convert_df(df_mc_prior)
 
 st.download_button(
       label='Press to Download machine priority sample file',
-      data=mc_prior_excel,
+      data=df_mc_prior,
       file_name="mc_prior.xlsx",
       key='download-excel'
       )
 
-mc_avail_excel = convert_df(df_mc_avail)
+
 st.download_button(
       label='Press to Download machine availability sample file',
-      data =mc_avail_excel,
+      data =df_mc_avail,
       file_name='mc_avail.xlsx',
       key='download-excel'
       )
