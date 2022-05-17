@@ -17,16 +17,15 @@ st.subheader('Click here to download sample files')
 st.download_button(
       "Press to Download machine Priority file",
       mc_prior_csv,
-      "file.csv",
+      "mc-prior.csv",
       "text/csv",
       key='download-csv'
-      
-
+      )
 mc_avail_csv = convert_df(df_mc_avail)
 st.download_button(
       "Press to Download machine availability file",
       mc_avail_csv,
-      "file.csv",
+      "mc_avail.csv",
       "text/csv",
       key='download-csv'
       )
