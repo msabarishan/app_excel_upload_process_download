@@ -8,26 +8,24 @@ df_mc_avail=pd.read_excel('mc_avail.xlsx')
 df_mc_prior=pd.read_excel('mc_prior.xlsx')
 
 def convert_df(machine_data):
-       return machine_data.to_csv().encode('utf-8')
+       return machine_data.to_excel().encode('utf-8')
 
 
-mc_prior_csv = convert_df(df_mc_prior)
+mc_prior_excel = convert_df(df_mc_prior)
 
 st.download_button(
       "Press to Download machine priority sample file",
-      mc_prior_csv,
-      "mc_prior.csv",
-      "text/csv",
-      key='download-csv'
+      mc_prior_excel,
+      "mc_prior.xlsx",
+      "text/xlsx",
+      key='download-excel'
       )
 
-mc_avail_csv = convert_df(df_mc_avail)
-st.download_button(
-      "Press to Download machine availability sample file",
-      mc_avail_csv,
-      "mc_avail.csv",
-      "text/csv",
-      key='download-csv'
+mc_avail_excel = convert_df(df_mc_avail)
+st.download_button(label=
+      'Press to Download machine availability sample file',
+      data =mc_avail_excel,
+      file_name='mc_avail.xlsx'
       )
 st.subheader('Click here to download sample files')
 mc_prior_ip= st.file_uploader("Choose a Machine Priority XLSX file", type="xlsx")
