@@ -114,7 +114,7 @@ try:
         
     mac_data1.remove("maf")
     ndf['Machine_allocated']=pd.DataFrame(mac_data1)
-    ndf.drop(ndf.iloc[:, 3:11], inplace = True, axis = 1)
+    ndf.drop(ndf.iloc[:, 3:12], inplace = True, axis = 1)
     st.subheader('Export Plan in CSV format')
 
     def convert_df(ndf):
@@ -132,7 +132,7 @@ try:
       )
     st.subheader('Machine Plan')
     st.table(ndf)
-    st.write('m1- Time taken for machinining respective material in machine1, m1p-Machine 1 Priority level,ma1-machine available time for the particular location,ma1-machine1')
+    st.write('ma1- Machine 1, ma2- Machine 2, ma3- Machine 3')
 except:
     pass
 
