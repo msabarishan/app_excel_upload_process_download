@@ -131,6 +131,7 @@ try:
       "text/csv",
       key='download-csv'
       )
+    ndf['location']= ndf['location'].apply(str)
     st.subheader('Machine Plan')
     st.table(ndf)
     hist = alt.Chart(ndf).mark_bar().encode(x = 'Machine_allocated',
