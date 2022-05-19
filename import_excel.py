@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import altair as alt
 st.write("""
 # Machine Allocation
 """)
@@ -132,6 +133,11 @@ try:
       )
     st.subheader('Machine Plan')
     st.table(ndf)
+    hist = alt.Chart(ndf).mark_bar().encode(x = 'Machine_allocated',
+                                             y = 'count()')
+    st.subheader('Machine Distribution')
+    st.altair_chart(chart1,use_container_width=True)
+    
     
 except:
     pass
