@@ -62,53 +62,53 @@ try:
     
             
         if (ndf.iloc[j-1,5]==1.0)and(ndf.iloc[j-1,2]<=a):
-            mac_data='ma1'
+            mac_data='Machine1'
             a=a-ndf.iloc[j-1,2]
         
         elif (ndf.iloc[j-1,6]==1.0)and(ndf.iloc[j-1,3]<=b):
-            mac_data='ma2'
+            mac_data='Machine2'
             b=b-ndf.iloc[j-1,3]
         
         elif (ndf.iloc[j-1,7]==1.0)and(ndf.iloc[j-1,4]<=c):
-            mac_data='ma3'
+            mac_data='Machine3'
             c=c-ndf.iloc[j-1,4]
     # Above condtion to check first machine
         elif (ndf.iloc[j-1,5]==1.0)and(ndf.iloc[j-1,2]>a)and(ndf.iloc[j-1,3]<=b)and(ndf.iloc[j-1,6]==2.0):
-            mac_data='ma2'
+            mac_data='Machine2'
             b=b-ndf.iloc[j-1,3]
         elif (ndf.iloc[j-1,6]==1.0)and(ndf.iloc[j-1,2]>a)and(ndf.iloc[j-1,4]<=c)and(ndf.iloc[j-1,7]==2.0):
-            mac_data='ma3'
+            mac_data='Machine3'
             c=c-ndf.iloc[j-1,4]
         
         elif (ndf.iloc[j-1,6]==1.0)and(ndf.iloc[j-1,3]>b)and(ndf.iloc[j-1,2]<=a)and(ndf.iloc[j-1,5]==2.0):
-            mac_data='ma1'
+            mac_data='Machine1'
             a=a-ndf.iloc[j-1,2]
         elif (ndf.iloc[j-1,6]==1.0)and(ndf.iloc[j-1,3]>b)and(ndf.iloc[j-1,4]<=c)and(ndf.iloc[j-1,7]==2.0):
-            mac_data='ma3'
+            mac_data='Machine3'
             c=c-ndf.iloc[j-1,4]
         
         elif (ndf.iloc[j-1,7]==1.0)and(ndf.iloc[j-1,4]>c)and(ndf.iloc[j-1,2]<=a)and(ndf.iloc[j-1,5]==2.0):
-            mac_data='ma1'
+            mac_data='Machine1'
             a=a-ndf.iloc[j-1,2]
         elif (ndf.iloc[j-1,7]==1.0)and(ndf.iloc[j-1,4]>c)and(ndf.iloc[j-1,3]<=b)and(ndf.iloc[j-1,6]==2.0):
-            mac_data='ma2'
+            mac_data='Machine2'
             b=b-ndf.iloc[j-1,3]
     # Above condition to check second machine
         elif (ndf.iloc[j-1,5]==3.0)and(ndf.iloc[j-1,2]<=a):
-            mac_data='ma1'
+            mac_data='Machine1'
             a=a-ndf.iloc[j-1,2]
         
         elif (ndf.iloc[j-1,6]==3.0)and(ndf.iloc[j-1,3]<=b):
-            mac_data='ma2'
+            mac_data='Machine2'
             b=b-ndf.iloc[j-1,3]
         
         elif (ndf.iloc[j-1,7]==3.0)and(ndf.iloc[j-1,4]<=c):
-            mac_data='ma3'
+            mac_data='Machine3'
             c=c-ndf.iloc[j-1,4]
     # Above condition to check third machine
         
         else:
-            mac_data='nm'
+            mac_data='No Machine Available'
         mac_data1.append(mac_data)
         j=j+1
         
@@ -132,7 +132,7 @@ try:
       )
     st.subheader('Machine Plan')
     st.table(ndf)
-    st.write('ma1- Machine 1, ma2- Machine 2, ma3- Machine 3, nm- no machine available')
+    
 except:
     pass
 
