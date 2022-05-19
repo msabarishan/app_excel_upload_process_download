@@ -135,7 +135,7 @@ try:
     st.subheader('Machine Plan')
     st.table(ndf)
     hist = alt.Chart(ndf).mark_bar().encode(x = 'Machine_allocated',
-                                             alt.Y = ('count()',title= 'No of Materials'),color = 'location')
+                                             y = alt.Y('count()',title= 'No of Materials'),color = 'location')
     st.subheader('Machine Distribution')
     st.altair_chart(hist,use_container_width=True)
     
