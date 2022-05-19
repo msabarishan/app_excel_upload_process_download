@@ -136,7 +136,7 @@ try:
     hist = alt.Chart(ndf).mark_bar().encode(x = 'Machine_allocated',
                                              y = 'count()')
     st.subheader('Machine Distribution')
-    st.altair_chart(chart1,use_container_width=True)
+    st.altair_chart(hist,use_container_width=True)
     
     
 except:
