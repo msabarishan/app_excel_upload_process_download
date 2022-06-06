@@ -1,6 +1,8 @@
 
 Streamlit App for Machine planning using Python.
 
+Applink:https://share.streamlit.io/msabarishan/uploading_excel_file/main/import_excel.py
+
 Assume you are having three machines (m1,m2,m3) and each machine is available say 1440 mins in a day.
 
 'N' no of materials need to be machined in these machines in a day.
